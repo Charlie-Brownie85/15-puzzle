@@ -1,0 +1,82 @@
+* {
+  -moz-osx-font-smoothing: greyscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+  
+  scrollbar-width: thin;
+}
+
+:root {
+  --font-family: theme('fontFamily.body');
+  --headings-font-family: theme('fontFamily.display');
+}
+
+html {
+  --scrollbar-thumb: theme('colors.base.400');
+  --scrollbar-background: theme('colors.base.100');
+  
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-background);
+  
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+  }
+  
+  &::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-background);
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-base-500;
+  }
+}
+
+html.dark {
+  --scrollbar-thumb: theme('colors.base.600');
+  --scrollbar-background: theme('colors.base.800');
+
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-family);
+  @apply bg-white;
+  font-weight: 400;
+  @apply text-base-900;
+}
+
+.dark body {
+  @apply bg-base-900;
+  @apply text-white;
+}
+
+
+h1,
+h2
+{
+  font-family: var(--headings-font-family, --font-family);
+}
+
+#app {
+  @apply min-h-screen m-0 bg-primary-100;
+  transition: background-color 0.3s ease;
+}
+
+.dark #app {
+  @apply bg-base-900;
+  transition: background-color 0.3s ease;
+}
+
+@media screen(lg) {
+  #app {
+    @apply flex flex-col;
+  }
+}
+
+
