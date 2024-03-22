@@ -12,8 +12,10 @@ const colors = {
   },
   tile: {
     300: '#FFF3D3',
-    500: '#FFD700',
-    700: '#E6B535',
+    400: '#FFEBB7',
+    500: '#FFC400',
+    700: '#FFB300',
+    800: '#FFA500',
   },
   state: {
     error: {
