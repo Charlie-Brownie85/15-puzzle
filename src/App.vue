@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import JSConfetti from 'js-confetti';
 
 const base = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
 
@@ -22,6 +23,11 @@ const shuffle = (array: Array<number>): Array<number> => {
 };
 
 const configuration = ref(shuffle(base));
+const jsConfetti = new JSConfetti();
+
+const celebrate = () => {
+  jsConfetti.addConfetti();
+};
 
 function newGame() {
   configuration.value = shuffle(base);
@@ -44,6 +50,7 @@ function newGame() {
     </div>
     <GameCompo
       :configuration="configuration"
+      :on-solved="celebrate"
       :key="configuration"
     />
   </main>
